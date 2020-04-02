@@ -1,0 +1,127 @@
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info">
+        <div class="footertext">
+        </div>
+        <!-- 作者注明 -->
+        <div class="footer-device">
+            <p style="font-family: 'Ubuntu', sans-serif;">
+                <span style="color: #b9b9b9;">
+                   Blog <%= config.author || config.title %>
+                   <i class="iconfont /images/icon-lcd rotating" style="color: #ffc0cb;display:inline-block"></i> 
+                  Copyright &copy; <%= date(new Date(), 'YYYY') %> <%= __('by') %> 墨斯R All Rights Reserved.
+                  </span>
+                </p>
+                 <span style="color: #b9b9b9;"> Theme <a href="https://github.com/forsigner/forsigner.github.io" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">by fexo</a> & <a href="https://hexo.io/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">by Hexo, Hosted <a href="https://github.com/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">by Github Pages.</a>
+             </span>
+            </p>
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议.</a>
+            </span>
+           </p>
+        </div>
+        <!-- 网站数据统计 -->
+        <span style="color: #ff9999;padding-left: 20px;">
+            <!-- 网站运行时间统计 -->
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <span id="time" align="center">载入时间中...</span>
+            <script>
+            var now = new Date(); 
+            function createtime() { 
+            var grt= new Date("2020-02-25 20:20:20");//在此处修改你的建站时间
+            now.setTime(now.getTime()+250); 
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+            document.getElementById("time").innerHTML = "经历各种困难，小破站已经苟活 "+ dnum +" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";      
+        } 
+        setInterval("createtime()",250);
+
+            </script>
+            <!-- 全网站字数统计wordcount -->
+            <span style="color:#ff9999;padding-left: 20px;"><i class="fa fa-line-chart"  aria-hidden="true"></i> 博客全站共<span class="post-count"><%= totalcount(site) %></span>字</span>
+            <!-- 不蒜子网页计数器 -->
+            <span style="color:#ff9999;padding-left: 20px;"><i class="fa fa-fire" aria-hidden="true"></i><span id="busuanzi_container_site_pv">总热度 <span id="busuanzi_value_site_pv"></span>℃</span>
+            </span>
+        </span> 
+    </div><!-- .site-info -->
+    
+<!-- 不蒜子 网页计数器 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/js/sakura-app.js"></script>
+
+<!-- fancybox大图查看 需jq -->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/js/jquery.fancybox.min.js"></script>
+<script>
+  $('[data-fancybox="images"]').fancybox({
+    thumbs : {
+      autoStart : true //缩略图
+    }
+  });
+  $('[data-fancybox]').fancybox({
+    protect: true,//图片右键不能下载
+    youtube : {
+        controls : 0,
+        showinfo : 0
+    },
+    vimeo : {
+        color : 'f00'
+    }
+  });
+</script>
+
+<!--转载注明-->
+<script ="text/javascript">function addLink() {
+    var selection = window.getSelection();
+    pagelink = ". 原文出自[dmcimi] 转载请保留原文链接: " + document.location.href;
+    copytext = selection + pagelink;
+    newdiv = document.createElement('div');
+    newdiv.style.position = 'absolute';
+    newdiv.style.left = '-99999px';
+    document.body.appendChild(newdiv);
+    newdiv.innerHTML = copytext;
+    selection.selectAllChildren(newdiv);
+    window.setTimeout(function () {
+        document.body.removeChild(newdiv);
+    }, 100);
+}
+document.oncopy = addLink;</script>
+<!--- 复制 --->
+<script ="text/javascript">function addLink() {
+    var body_element = document.body;
+    var selection;
+    selection = window.getSelection();
+    if (window.clipboardData) { // Internet Explorer
+        var pagelink ="\r\n\r\n 原文出自“dmcimi”转载请保留原文链接: "+document.location.href+"";
+        var copytext = selection + pagelink;
+        window.clipboardData.setData ("Text", copytext);
+        return false;
+    } else {
+        var pagelink = " 原文出自“dmcimi”转载请保留原文链接: "+document.location.href+"";
+        var copytext = selection + pagelink;
+        var newdiv = document.createElement('div');
+        newdiv.style.position='absolute';
+        newdiv.style.left='-99999px';
+        body_element.appendChild(newdiv);
+        newdiv.innerHTML = copytext;
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function() {
+        body_element.removeChild(newdiv);
+        },0);
+    }
+}
+document.oncopy = addLink;
+</script>
+
+<!-- 浏览器搞笑标题 -->
+<script type="text/javascript" src="/js/src/hititle.js"></script>
+<!-- weather -->
+<script type="text/javascript"> WIDGET = {FID: '1tFpFZ5Mtj'} </script> <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+<!-- 数学显示 -->
+<script id="MathJax-script" async
+<script type="text/javascript" src="/js/src/tex-mml-chtml.js"></script>
+</script>
+<!-- The forbidden js -->
+<script src="./node_modules/javascript-obfuscator/dist/index.browser.js"></script>
